@@ -90,7 +90,7 @@ export default function Chat() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      extendIdleTime(idleTimeoutCounter, setIdleTimeoutCounter, sendIdleMessage);
+      extendIdleTime(idleTimeoutCounter, setIdleTimeoutCounter, sendIdleMessage, navigate);
     }, 60000);
 
     return () => {

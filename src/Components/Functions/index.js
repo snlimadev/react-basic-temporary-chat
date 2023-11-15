@@ -2,7 +2,7 @@ import { ReadyState } from 'react-use-websocket';
 
 //#region Function to validate required fields / Função para validar campos obrigatórios
 export function validateRequiredFields(field, label) {
-  if (!field) {
+  if (!field.trim()) {
     Swal.fire({
       icon: 'warning',
       text: `${label} must not be empty.`
@@ -117,8 +117,8 @@ export function handleChatMessages(lastMessage, setMessages, navigate) {
         //#region Send notification if chat is not visible / Envia notificação se o chat não estiver visível
         if ('Notification' in window) {
           if (Notification.permission === 'granted' && document.hidden && !event) {
-            new Notification('Basic - Temporary Chat', {
-              body: 'You have a new message.',
+            new Notification(`New message from ${sender}`, {
+              body: message,
               icon: '../../../logo512.png',
             });
           }
@@ -140,18 +140,23 @@ export function handleChatMessages(lastMessage, setMessages, navigate) {
 //#endregion
 
 //#region Extend idle time from 3 to 10 minutes / Aumenta o tempo de inatividade de 3 para 10 minutos
-export function extendIdleTime(idleTimeoutCounter, setIdleTimeoutCounter, sendIdleMessage) {
-  if (idleTimeoutCounter < 7) {
+export function extendIdleTime(idleTimeoutCounter, setIdleTimeoutCounter, sendIdleMessage, navigate) {
+  if (idleTimeoutCounter < 8) {
     sendIdleMessage();
   } else if (idleTimeoutCounter < 9) {
-    setIdleTimeoutCounter(idleTimeoutCounter + 1);
+    Swal.fire({
+      icon: 'warning',
+      text: 'Your session will expire in 60 seconds due to inactivity.'
+    });
 
-    if (idleTimeoutCounter === 8) {
-      Swal.fire({
-        icon: 'warning',
-        text: 'Your session will expire in 60 seconds due to inactivity.'
-      });
-    }
+    setIdleTimeoutCounter(idleTimeoutCounter + 1);
+  } else {
+    Swal.fire({
+      icon: 'error',
+      text: 'Your session expired due to inactivity.'
+    });
+
+    navigate('/');
   }
 }
 //#endregion
