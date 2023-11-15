@@ -118,7 +118,7 @@ export function handleChatMessages(lastMessage, setMessages, navigate) {
         if ('Notification' in window) {
           if (Notification.permission === 'granted' && document.hidden && !event) {
             new Notification(`New message from ${sender}`, {
-              body: message,
+              body: message.replace(/\\n/g, '\n'),
               icon: '../../../logo512.png',
             });
           }
