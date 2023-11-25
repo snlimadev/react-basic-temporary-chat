@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../../Header';
@@ -6,8 +6,6 @@ import Footer from '../../Footer';
 import { useChatParameters } from '../../../Contexts/ChatParametersContext';
 
 export default function Home() {
-  const [isDarkMode, toggleDarkMode] = useState(false);
-
   const { setChatParameters } = useChatParameters();
 
   useEffect(() => {
@@ -19,8 +17,6 @@ export default function Home() {
       <Header
         title='Home'
         icon='hidden'
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
       />
 
       <main className='w-100 mx-auto text-center px-3 py-5'>

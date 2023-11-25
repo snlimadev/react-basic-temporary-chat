@@ -10,7 +10,6 @@ import { useChatParameters } from '../../Contexts/ChatParametersContext';
 export default function CreateRoom() {
   const [userName, setUserName] = useState('');
   const [maxRoomSize, setMaxRoomSize] = useState(2);
-  const [isDarkMode, toggleDarkMode] = useState(false);
 
   const roomCode = Math.floor(100000 + Math.random() * 900000).toString();
   const { setChatParameters } = useChatParameters();
@@ -34,8 +33,6 @@ export default function CreateRoom() {
       <Header
         title='Create Room'
         icon='back'
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
       />
 
       <FormFields

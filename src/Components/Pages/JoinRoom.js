@@ -10,7 +10,6 @@ import { useChatParameters } from '../../Contexts/ChatParametersContext';
 export default function JoinRoom() {
   const [userName, setUserName] = useState('');
   const [roomCode, setRoomCode] = useState('');
-  const [isDarkMode, toggleDarkMode] = useState(false);
 
   const { setChatParameters } = useChatParameters();
   const navigate = useNavigate();
@@ -33,8 +32,6 @@ export default function JoinRoom() {
       <Header
         title='Join Room'
         icon='back'
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
       />
 
       <FormFields

@@ -14,7 +14,6 @@ import ChatCards from '../ChatCards';
 export default function Chat() {
   const [message, setMessage] = useState('');
   const [chatMessages, setChatMessages] = useState([]);
-  const [isDarkMode, toggleDarkMode] = useState(false);
   const [serverCalled, setServerCalled] = useState(false);
   const [idleMessage, setIdleMessage] = useState('');
   const [idleTimeoutCounter, setIdleTimeoutCounter] = useState(0);
@@ -104,8 +103,6 @@ export default function Chat() {
       <Header
         title={`Room ${roomCode}`}
         icon='home'
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
       />
 
       <main className='py-5'>
