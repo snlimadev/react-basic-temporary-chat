@@ -22,10 +22,7 @@ export default function InstructionsCard(props) {
         .then(() => console.log('Shared successfully'))
         .catch((error) => console.error('Error sharing', error));
     } else {
-      Swal.fire({
-        icon: 'warning',
-        text: 'Share action is not supported in this browser.'
-      });
+      alert('Share action is not supported in this browser.');
     }
   }
 

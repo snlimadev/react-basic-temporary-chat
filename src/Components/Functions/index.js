@@ -1,9 +1,19 @@
 import { ReadyState } from 'react-use-websocket';
+import Swal from 'sweetalert2';
+
+const customSwal = Swal.mixin({
+  customClass: {
+    confirmButton: "btn btn-primary"
+  },
+  buttonsStyling: false,
+  background: 'var(--bs-body-bg)',
+  color: 'var(--bs-body-color)'
+});
 
 //#region Function to validate required fields / Função para validar campos obrigatórios
 export function validateRequiredFields(field, label) {
   if (!field.trim()) {
-    Swal.fire({
+    customSwal.fire({
       icon: 'warning',
       text: `${label} must not be empty.`
     });
@@ -28,7 +38,7 @@ export function handleClientConnection(serverCalled, setServerCalled, readyState
     }
     //#endregion
 
-    Swal.fire({
+    customSwal.fire({
       title: 'Connecting...',
       didOpen: () => {
         Swal.showLoading();
@@ -42,7 +52,7 @@ export function handleClientConnection(serverCalled, setServerCalled, readyState
       Swal.close();
       return true;
     } else {
-      Swal.fire({
+      customSwal.fire({
         icon: 'error',
         text: 'Connection to the server lost. Please check your internet connection and try again later.'
       });
@@ -125,7 +135,7 @@ export function handleChatMessages(lastMessage, setMessages, navigate) {
         }
         //#endregion
       } else if (messageData.error) {
-        Swal.fire({
+        customSwal.fire({
           icon: 'error',
           text: messageData.error
         });
@@ -144,14 +154,14 @@ export function extendIdleTime(idleTimeoutCounter, setIdleTimeoutCounter, sendId
   if (idleTimeoutCounter < 8) {
     sendIdleMessage();
   } else if (idleTimeoutCounter < 9) {
-    Swal.fire({
+    customSwal.fire({
       icon: 'warning',
       text: 'Your session will expire in 60 seconds due to inactivity.'
     });
 
     setIdleTimeoutCounter(idleTimeoutCounter + 1);
   } else {
-    Swal.fire({
+    customSwal.fire({
       icon: 'error',
       text: 'Your session expired due to inactivity.'
     });
