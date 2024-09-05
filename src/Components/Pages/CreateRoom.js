@@ -29,7 +29,7 @@ export default function CreateRoom() {
   }, []);
 
   return (
-    <div>
+    <div className='vh-100 d-flex flex-column justify-content-center'>
       <Header
         title='Create Room'
         icon='back'

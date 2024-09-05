@@ -28,7 +28,7 @@ export default function JoinRoom() {
   }, []);
 
   return (
-    <div>
+    <div className='vh-100 d-flex flex-column justify-content-center'>
       <Header
         title='Join Room'
         icon='back'

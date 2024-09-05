@@ -19,7 +19,7 @@ export default function Home() {
         icon='hidden'
       />
 
-      <main className='w-100 mx-auto text-center px-3 py-5'>
+      <main className='w-100 overflow-auto mx-auto mt-5 mb-4 text-center px-3'>
         <h3>Welcome to Basic - Temporary Chat!</h3>
 
         <h5 className='pt-2'>Just create a room, share the room code with your friends and start chatting!</h5>
@@ -28,7 +28,7 @@ export default function Home() {
           <Link className='btn btn-primary w-100' to='/create-room'>CREATE A ROOM</Link>
         </div>
 
-        <div className='col col-md-9 col-lg-6 mx-auto pt-3 pb-2'>
+        <div className='col col-md-9 col-lg-6 mx-auto pt-3'>
           <Link className='btn btn-primary w-100' to='/join-room'>JOIN A ROOM</Link>
         </div>
       </main>
