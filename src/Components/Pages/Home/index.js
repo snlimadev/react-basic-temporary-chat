@@ -19,7 +19,7 @@ export default function Home() {
         icon='hidden'
       />
 
-      <main className='w-100 overflow-auto mx-auto mt-5 mb-4 text-center px-3'>
+      <main className='w-100 overflow-auto mx-auto mt-5 mb-4 text-center px-3 py-1'>
         <h3>Welcome to Basic - Temporary Chat!</h3>
 
         <h5 className='pt-2'>Just create a room, share the room code with your friends and start chatting!</h5>

@@ -9,7 +9,7 @@ export default function FormFields(props) {
   };
 
   return (
-    <main className='w-100 overflow-auto mx-auto mt-5 mb-4 px-3'>
+    <main className='w-100 overflow-auto mx-auto mt-5 mb-4 px-3 py-1'>
       <div className='col col-md-9 col-lg-6 mx-auto'>
         {
           (props.buttonTitle === 'CREATE') ? (
