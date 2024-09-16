@@ -112,11 +112,13 @@ export function handleChatMessages(lastMessage, setMessages, navigate) {
     try {
       const messageData = JSON.parse(lastMessage.data);
       const sender = messageData.sender;
-      const time = messageData.time;
       const message = messageData.message;
       const event = messageData.event;
 
-      if ((sender && time && message) || event) {
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+      const time = new Intl.DateTimeFormat('pt-BR', options).format(new Date());
+
+      if ((sender && message) || event) {
         setMessages(prevMessages => [...prevMessages, {
           sender: sender,
           time: time,
