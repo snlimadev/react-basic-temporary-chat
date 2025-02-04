@@ -10,7 +10,7 @@ export default function Header(props) {
   return (
     <header
       className='header fixed-top text-white p-1 d-flex justify-content-between align-items-center'
-      style={{ backgroundColor: '#00A2E8' }}
+      style={{ backgroundColor: 'var(--primary-color)' }}
     >
       <Link to='/' className='btn float-left text-white'>
         {

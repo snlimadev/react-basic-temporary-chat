@@ -114,12 +114,12 @@ export default function Chat() {
         <textarea
           ref={textareaRef}
           rows={3}
-          className='form-control border border-primary'
+          className='form-control'
           placeholder='Send a message'
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={sendMessageOnEnterPress}
-          style={{ resize: 'none' }}
+          style={{ resize: 'none', borderColor: 'var(--primary-color)' }}
         />
 
         <Button variant='primary' type='button' onClick={handleSendMessage}>
