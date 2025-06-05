@@ -145,13 +145,13 @@ export function handleChatMessages(lastMessage, setMessages, navigate) {
         navigate('/');
       }
     } catch (error) {
-      console.log('Failed to parse message data: ' + lastMessage.data);
+      console.error('Failed to parse message data: ' + lastMessage.data);
     }
   }
 }
 //#endregion
 
-//#region Extend idle time from 3 to 10 minutes / Aumenta o tempo de inatividade de 3 para 10 minutos
+//#region Extend idle time to 10 minutes / Aumenta o tempo de inatividade para 10 minutos
 export function extendIdleTime(idleTimeoutCounter, setIdleTimeoutCounter, sendIdleMessage, navigate) {
   if (idleTimeoutCounter < 8) {
     sendIdleMessage();

@@ -18,7 +18,7 @@ export default function Chat() {
   const [idleMessage, setIdleMessage] = useState('');
   const [idleTimeoutCounter, setIdleTimeoutCounter] = useState(0);
 
-  const { sendJsonMessage, readyState, lastMessage } = useWebSocket('wss://api-basic-temporary-chat.glitch.me');
+  const { sendJsonMessage, readyState, lastMessage } = useWebSocket('wss://api-basic-temporary-chat.onrender.com');
   const { action } = useParams();
   const { user, roomCode, maxRoomSize } = useChatParameters();
   const messagesEndRef = useRef(null);

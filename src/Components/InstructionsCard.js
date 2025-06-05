@@ -7,7 +7,7 @@ import { FaCopy, FaShareAlt } from 'react-icons/fa';
 export default function InstructionsCard(props) {
   const [copiedTooltipVisible, setCopiedTooltipVisible] = useState(false);
 
-  const textToShare = `Room code for Basic - Temporary Chat is ${props.shareRoomCode}`;
+  const textToShare = `The room code for Basic - Temporary Chat is ${props.shareRoomCode}`;
   const urlToShare = 'https://basic-temporary-chat.vercel.app/join-room';
   const copiedTooltip = <Tooltip>Copied</Tooltip>;
 
@@ -47,9 +47,8 @@ export default function InstructionsCard(props) {
         </div>
 
         <div className='card-body'>
-          Please be aware this is a temporary chat room.
-          If you close your browser or reload the page, you will exit the room and you will need to join it again.
-          Additionally, once the last person leaves the room it will be automatically deleted.
+          Please be aware this is a temporary chat room that disappears after the last person leaves.
+          Also, your session will expire if you don't send any messages for 10 minutes.
         </div>
 
         <OverlayTrigger placement='top' overlay={copiedTooltip} show={copiedTooltipVisible}>
